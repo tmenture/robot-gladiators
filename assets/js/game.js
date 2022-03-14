@@ -1,3 +1,9 @@
+// Game states
+// "Win" - Player robot has defeated all enemy robots
+//      * fight all enemy robots
+//      * defeat each enemy robot
+// "Lose" - Player robot's health is zero or less
+
 // variable list
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
@@ -7,12 +13,12 @@ var playerMoney = 10;
 // you can log multiple valuse at once 
 console.log(playerName, playerAttack, playerHealth);
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
 // this is the fight function
-var fight = function() {
+var fight = function(enemyName) {
     // Alert players that they are starting the round
     window.alert("Welcome to Robot Fight Club!");
 
@@ -64,9 +70,11 @@ var fight = function() {
         // if player did not choose valid option
     } else {
         window.alert("You need to choose a valid option. Try again!");
-    }
+    } 
     
 };
 
 // run the fight function to start the game 
-fight();
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
