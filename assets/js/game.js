@@ -12,8 +12,6 @@ console.log(enemyNames.length);
 console.log(enemyNames[0]);
 console.log(enemyNames[3]);
 
-
-
 // fight function (now with parameter for enemy's name)
 var fight = function(enemyName) {
   while (playerHealth > 0 && enemyHealth > 0) {
@@ -82,7 +80,7 @@ var startGame = function() {
     // if player is still alive, keep fighting
     if (playerHealth > 0) {
       // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-      window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
+      window.alert('Welcome to Robot Fight Club! Round ' + (i + 1));
 
       // pick new enemy to fight based on the index of the enemyNames array
       var pickedEnemyName = enemyNames[i];
@@ -113,35 +111,37 @@ var startGame = function() {
     }
   }
 
-  var endGame = function() {
-    window.alert("The game has now ended. Let's see how you did!");
-    if (playerHealth > 0) {
-      window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
-    }
-    else {
-      window.alert("You've lost your robot in battel.");
-    }
-    var playAgainConfirm = window.confirm("Would you like to play again?");
-  
-    if (playAgainConfirm) {
-      //restart the game
-      startGame();
-    }
-    else {
-      window.alert("Thank you for playing Robot Fight Club! Come back soon!");
-    }
-  }
-
-  // play again
-  endGame();
+    // after lop ends, we are either out of player health or enemies to fight,so run the end game function
+    endGame();
 };
 
+var endGame = function() {
+  window.alert("The game has now ended. Let's see how you did!");
+  if (playerHealth > 0) {
+    window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
+  }
+  else {
+    window.alert("You've lost your robot in battel.");
+  }
+  var playAgainConfirm = window.confirm("Would you like to play again?");
+  
+  if (playAgainConfirm) {
+    //restart the game
+    startGame();
+  }
+  else {
+    window.alert("Thank you for playing Robot Fight Club! Come back soon!");
+  }
+};
+
+// go to shop between battles function
 var shop = function() {
   //ask player what they would like to do
   var shopOptionPrompt = window.prompt(
     "Would you like to REFILL you health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
   );
 
+  // use switch case to carry out action
   switch (shopOptionPrompt) {
     case "REFILL":
     case "refill":
@@ -183,5 +183,5 @@ var shop = function() {
   }
 };
 
-// starts the game when the page loads
+// starts the game when page loads
 startGame();
