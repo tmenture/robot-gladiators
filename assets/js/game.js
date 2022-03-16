@@ -3,6 +3,14 @@ var playerHealth = 100;
 var playerAttack = 50;
 var playerMoney = 10;
 
+
+// function to generate a random numeric value
+var randomNumber = function(min, max) {
+  var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+  return value;
+};
+
 var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = randomNumber(40, 60);
 var enemyAttack = 12;
@@ -184,12 +192,5 @@ var shop = function() {
   }
 };
 
-// function to generate a random numeric value
-var randomNumber = function(min, max) {
-  var value = Math.floor(Math.random() * (max - min + 1) + min);
-
-  return value;
-};
-
 // starts the game when page loads
-startGame();
+startGame(); 
