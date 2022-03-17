@@ -192,4 +192,4 @@ var shop = function() {
 };
 
 // starts the game when page loads
-startGame();
+startGame(); 
